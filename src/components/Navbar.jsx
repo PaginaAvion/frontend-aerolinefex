@@ -1,6 +1,9 @@
 import { NavLink, Link } from 'react-router-dom';
+import { useCarrito } from '../context/CarritoContext';
 
 export default function Navbar() {
+  const { cantidadTotal } = useCarrito();
+
   const linkStyle = { color: 'aliceblue' };
   const activeStyle = { color: '#ffc107', fontWeight: 'bold' };
 
@@ -13,10 +16,11 @@ export default function Navbar() {
         <Link
           className="navbar-brand"
           to="/"
-          style={{ color: 'aliceblue', fontWeight: 'bold', paddingRight: '32vw' }}
+          style={{ color: 'aliceblue', fontWeight: 'bold', paddingRight: '20vw' }}
         >
           AEROLINEFEX
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -28,6 +32,7 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
@@ -86,6 +91,16 @@ export default function Navbar() {
               </NavLink>
             </li>
           </ul>
+
+          {/* Botón del carrito */}
+          <button
+            className="btn btn-outline-light me-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#carritoOffcanvas"
+          >
+            🛒 Carrito (<span id="cart-count">{cantidadTotal}</span>)
+          </button>
         </div>
       </div>
     </nav>
