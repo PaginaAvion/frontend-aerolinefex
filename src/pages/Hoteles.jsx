@@ -1,4 +1,10 @@
 export default function Hoteles() {
+
+  const handleBuscar = (evento) => {
+    evento.preventDefault();
+    alert("¡Buscando los mejores hoteles para ti!");
+  };
+
   return (
     <div className="container mt-5">
       <div
@@ -16,7 +22,7 @@ export default function Hoteles() {
           </li>
         </ul>
 
-        <form className="row g-2 align-items-end">
+        <form className="row g-2 align-items-end" onSubmit={handleBuscar}>
           <div className="col-lg-3 col-md-6">
             <label className="form-label text-muted small fw-bold mb-1">Destino</label>
             <input type="text" className="form-control" placeholder="¿A dónde viajas?" />
@@ -40,14 +46,9 @@ export default function Hoteles() {
           </div>
 
           <div className="col-lg-1 col-md-12 mt-3 mt-lg-0">
-            <a
-              href="https://www.nh-hotels.com/es/hoteles/santiago-de-chile?campid=8435"
-              className="btn btn-danger w-100 fw-bold rounded-pill p-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <button type="submit" className="btn btn-danger w-100 fw-bold rounded-pill p-2">
               Buscar
-            </a>
+            </button>
           </div>
 
           <img

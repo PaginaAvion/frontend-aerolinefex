@@ -1,4 +1,9 @@
 export default function Vuelos() {
+  const handleBuscar = (evento) => {
+    evento.preventDefault(); 
+    alert("¡Buscando los mejores vuelos para ti!"); 
+  };
+
   return (
     <div className="container mt-5">
       <div
@@ -13,7 +18,8 @@ export default function Vuelos() {
           </li>
         </ul>
 
-        <form className="row g-2 align-items-end">
+        {}
+        <form className="row g-2 align-items-end" onSubmit={handleBuscar}>
           <div className="col-lg-3 col-md-6">
             <label className="form-label text-muted small fw-bold mb-1">Origen</label>
             <input type="text" className="form-control" placeholder="Santiago, Chile (SCL)" />
@@ -47,7 +53,7 @@ export default function Vuelos() {
             </button>
           </div>
 
-          {/* Imagen de referencia debajo del buscador */}
+          {}
           <img src="/img/Av2.jpg" className="d-block w-100 mt-4 rounded" alt="Avión de vuelos" />
         </form>
       </div>

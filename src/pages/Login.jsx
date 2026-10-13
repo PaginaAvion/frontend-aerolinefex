@@ -1,4 +1,11 @@
-export default function Login() {
+export default function Login({ onLogin }) {
+  const handleIngresar = (evento) => {
+    evento.preventDefault();
+    if (onLogin) {
+      onLogin();
+    }
+  };
+
   return (
     <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
       <div className="card shadow-sm border-0" style={{ width: '100%', maxWidth: '420px', borderRadius: '10px' }}>
@@ -10,7 +17,8 @@ export default function Login() {
             Ingresa a tu cuenta para gestionar tus vuelos.
           </p>
 
-          <form>
+          { }
+          <form onSubmit={handleIngresar}>
             <div className="mb-3">
               <label
                 htmlFor="email"

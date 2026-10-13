@@ -19,7 +19,7 @@ export default function Consultas() {
 
       <div className="row g-5 justify-content-center">
 
-        {/* Formulario */}
+        {}
         <div className="col-lg-5">
           <div className="card shadow-sm border-0 rounded-4 p-4">
             <h4 className="fw-bold mb-4" style={{ color: '#002a5c' }}>Envíanos tu consulta</h4>
@@ -35,7 +35,7 @@ export default function Consultas() {
               </div>
               <div className="mb-3">
                 <label htmlFor="asunto" className="form-label fw-semibold">Asunto / Motivo</label>
-                {/* En React usamos defaultValue en el select en lugar de 'selected' en el option */}
+                {}
                 <select className="form-select" id="asunto" required defaultValue="">
                   <option value="" disabled>Selecciona una opción...</option>
                   <option value="1">Problemas con un Vuelo</option>
@@ -56,7 +56,7 @@ export default function Consultas() {
           </div>
         </div>
 
-        {/* Acordeón de Preguntas Frecuentes */}
+        {}
         <div className="col-lg-5">
           <h4 className="fw-bold mb-4" style={{ color: '#002a5c' }}>Preguntas Frecuentes</h4>
 
