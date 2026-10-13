@@ -52,7 +52,7 @@ export default function AlquilerAutos() {
 
                     {}
                     <img
-                        src="/img/auto.webp"
+                        src="/img/Autoexotico.jpg"
                         className="d-block w-100 mt-4 rounded"
                         alt="Vehículo de alquiler"
                     />
