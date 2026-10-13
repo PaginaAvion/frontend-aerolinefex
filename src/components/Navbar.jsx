@@ -1,11 +1,19 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useCarrito } from '../context/CarritoContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
   const { cantidadTotal } = useCarrito();
+  const { usuario, estaLogueado, logout } = useAuth();
+  const navigate = useNavigate();
 
   const linkStyle = { color: 'aliceblue' };
   const activeStyle = { color: '#ffc107', fontWeight: 'bold' };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <nav
@@ -81,15 +89,17 @@ export default function Navbar() {
                 Consultas
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                to="/login"
-                className="nav-link"
-                style={({ isActive }) => (isActive ? activeStyle : linkStyle)}
-              >
-                Iniciar Sesión
-              </NavLink>
-            </li>
+            {estaLogueado && usuario?.rol === 'administrador' && (
+              <li className="nav-item">
+                <NavLink
+                  to="/admin"
+                  className="nav-link"
+                  style={({ isActive }) => (isActive ? activeStyle : linkStyle)}
+                >
+                  Panel Admin
+                </NavLink>
+              </li>
+            )}
           </ul>
 
           {/* Botón del carrito */}
@@ -101,6 +111,28 @@ export default function Navbar() {
           >
             🛒 Carrito (<span id="cart-count">{cantidadTotal}</span>)
           </button>
+
+          {/* Info usuario logueado / botón login */}
+          {estaLogueado ? (
+            <div className="d-flex align-items-center gap-2">
+              <span className="text-white small">
+                👤 {usuario.nombre} ({usuario.rol})
+              </span>
+              <button
+                className="btn btn-sm btn-outline-warning"
+                onClick={handleLogout}
+              >
+                Salir
+              </button>
+            </div>
+          ) : (
+            <NavLink
+              to="/login"
+              className="btn btn-sm btn-warning fw-bold"
+            >
+              Iniciar Sesión
+            </NavLink>
+          )}
         </div>
       </div>
     </nav>
