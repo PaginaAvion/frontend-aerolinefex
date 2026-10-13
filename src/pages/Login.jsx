@@ -64,7 +64,7 @@ export default function Login() {
             Ingresa a tu cuenta para gestionar tus vuelos.
           </p>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate> 
             <div className="mb-3">
               <label
                 htmlFor="email"
