@@ -82,10 +82,20 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink
+                to="/AlquilerAutos"
+                className="nav-link"
+                style={({ isActive }) => (isActive ? activeStyle : linkStyle)}
+              >
+                AlquilerAutos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
                 to="/consultas"
                 className="nav-link"
                 style={({ isActive }) => (isActive ? activeStyle : linkStyle)}
               >
+
                 Consultas
               </NavLink>
             </li>

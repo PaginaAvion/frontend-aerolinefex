@@ -4,25 +4,28 @@ import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import Vuelos from './pages/Vuelos';
 import Hoteles from './pages/Hoteles';
+import AlquilerAutos from './pages/AlquilerAutos';
 import Paquetes from './pages/Paquetes';
 import Consultas from './pages/Consultas';
 import Login from './pages/Login';
 import PanelAdmin from './pages/PanelAdmin';
 
+
 export default function App() {
   return (
     <Routes>
-      {/* Páginas con navbar + footer público */}
+      {}
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/vuelos" element={<Vuelos />} />
         <Route path="/hoteles" element={<Hoteles />} />
         <Route path="/paquetes" element={<Paquetes />} />
         <Route path="/consultas" element={<Consultas />} />
+        <Route path="/AlquilerAutos" element={<AlquilerAutos />} />
         <Route path="/login" element={<Login />} />
       </Route>
 
-      {/* Panel admin PROTEGIDO - solo admin logueado */}
+      {}
       <Route
         path="/admin"
         element={
