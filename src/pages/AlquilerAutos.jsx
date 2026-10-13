@@ -1,7 +1,13 @@
+import React, { useState } from 'react';
+import Autos from './Autos';
+
 export default function AlquilerAutos() {
+
+    const [mostrarAutos, setMostrarAutos] = useState(false);
+
     const handleBuscar = (evento) => {
         evento.preventDefault();
-        alert("¡Buscando vehículos disponibles!");
+        setMostrarAutos(true);
     };
 
     return (
@@ -19,13 +25,11 @@ export default function AlquilerAutos() {
                 </ul>
 
                 <form className="row g-2 align-items-end" onSubmit={handleBuscar}>
-                    {}
                     <div className="col-lg-3 col-md-6">
                         <label className="form-label text-muted small fw-bold mb-1">Lugar de recogida</label>
                         <input type="text" className="form-control" placeholder="Aeropuerto, ciudad o estación" />
                     </div>
 
-                    {}
                     <div className="col-lg-4 col-md-6">
                         <label className="form-label text-muted small fw-bold mb-1">Fechas (Ida / Vuelta)</label>
                         <div className="input-group">
@@ -34,7 +38,6 @@ export default function AlquilerAutos() {
                         </div>
                     </div>
 
-                    {}
                     <div className="col-lg-3 col-md-6">
                         <label className="form-label text-muted small fw-bold mb-1">Horas (Recogida / Devolución)</label>
                         <div className="input-group">
@@ -43,20 +46,31 @@ export default function AlquilerAutos() {
                         </div>
                     </div>
 
-                    {}
                     <div className="col-lg-2 col-md-6 mt-3 mt-lg-0">
                         <button type="submit" className="btn btn-danger w-100 fw-bold rounded-pill p-2">
                             Buscar
                         </button>
                     </div>
+                </form>
 
-                    {}
+                { }
+                {mostrarAutos ? (
+                    <div className="mt-4">
+                        <button
+                            className="btn btn-outline-secondary btn-sm mb-3"
+                            onClick={() => setMostrarAutos(false)}
+                        >
+                            ← Volver
+                        </button>
+                        <Autos />
+                    </div>
+                ) : (
                     <img
                         src="/img/Autoexotico.jpg"
                         className="d-block w-100 mt-4 rounded"
                         alt="Vehículo de alquiler"
                     />
-                </form>
+                )}
             </div>
         </div>
     );
