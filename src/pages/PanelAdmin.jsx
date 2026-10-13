@@ -102,7 +102,7 @@ export default function PanelAdmin() {
 
   return (
     <div className="d-flex" style={{ minHeight: '100vh' }}>
-      {/* Sidebar */}
+      {}
       <aside
         className="p-3 text-white"
         style={{ width: '250px', backgroundColor: '#002a5c', flexShrink: 0 }}
@@ -123,7 +123,7 @@ export default function PanelAdmin() {
         </ul>
       </aside>
 
-      {/* Contenido principal */}
+      {}
       <main className="flex-grow-1 p-4" style={{ backgroundColor: '#f4f4f9' }}>
         <header className="d-flex justify-content-between align-items-center mb-4">
           <div>
@@ -141,7 +141,7 @@ export default function PanelAdmin() {
           </div>
         )}
 
-        {/* Formulario */}
+        {}
         <div className="card shadow-sm mb-4">
           <div className="card-body">
             <h5 className="fw-bold mb-3">
@@ -197,7 +197,7 @@ export default function PanelAdmin() {
           </div>
         </div>
 
-        {/* Tabla */}
+        {}
         <div className="card shadow-sm">
           <div className="card-body">
             <h5 className="fw-bold mb-3">Catálogo de Vuelos</h5>
