@@ -1,6 +1,6 @@
 import { useCarrito } from '../context/CarritoContext';
 
-const paquetes = [
+const autos = [
   {
     id: 1,
     nombre: 'Citroen C3',
@@ -18,7 +18,7 @@ const paquetes = [
     equipaje: '3 piezas de equipaje'
   },
   {
-     id: 2,
+    id: 3,
     nombre: 'Nissan Versa',
     capacidad: '4 personas',
     precio: 92500,
@@ -26,7 +26,7 @@ const paquetes = [
     equipaje: '2 piezas de equipaje'
   },
   {
-     id: 2,
+    id: 4,
     nombre: 'Renault Kwid',
     capacidad: '5 personas',
     precio: 120500,
@@ -36,64 +36,60 @@ const paquetes = [
   {
     id: 5,
     nombre: 'Kia Soluto',
-    descripcion: '4 personas',
+    capacidad: '4 personas',
     precio: 100000,
     imagen: '/img/pegas.jpg',
-    alt: '3 piezas de equipaje'
+    equipaje: '3 piezas de equipaje'
   }
 ];
 
-export default function Paquetes() {
+export default function Autos() {
   const { agregarAlCarrito } = useCarrito();
 
   const formatearPrecio = (valor) => `$${valor.toLocaleString('es-CL')}`;
 
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mt-4 mb-5">
       <div className="row g-4 justify-content-center">
-        {paquetes.map((paquete) => (
-          <div key={paquete.id} className="col-12 col-md-4">
+        {autos.map((auto) => (
+          <div key={auto.id} className="col-12 col-md-4">
             <div className="card h-100 border-0 shadow-sm rounded-4 position-relative">
               <span className="badge bg-white text-dark position-absolute top-0 end-0 m-2 shadow-sm">
-                Oferta de Vehiculos
+                Oferta de Vehículos
               </span>
 
               <img
-                src={paquete.imagen}
+                src={auto.imagen}
                 className="card-img-top rounded-top-4"
-                alt={paquete.alt}
+                alt={auto.nombre}
                 style={{ height: '180px', objectFit: 'cover' }}
               />
 
               <div className="card-body d-flex flex-column">
-                <h6 className="card-title fw-bold">{paquete.nombre}</h6>
+                <h6 className="card-title fw-bold">{auto.nombre}</h6>
                 <p className="text-muted small mb-3">
-                  {paquete.descripcion} <br />
+                  Capacidad: {auto.capacidad} <br />
                   <span className="text-primary fw-semibold">
-                      maletas de equipaje incluidas
+                    🧳 {auto.equipaje}
                   </span>
                 </p>
 
                 <div className="mt-auto">
                   <span className="text-muted small d-block">Desde</span>
                   <h4 className="fw-bold mb-2">
-                    {formatearPrecio(paquete.precio)}
+                    {formatearPrecio(auto.precio)}
                   </h4>
                   <small
                     className="text-muted d-block mb-3"
                     style={{ fontSize: '0.75rem' }}
                   >
-                    Precio final 
+                    Precio por día
                   </small>
 
                   <button
                     className="btn btn-primary w-100"
                     onClick={() =>
-                      agregarAlCarrito(
-                        paquete.id,
-                        paquete.nombre,
-                        paquete.precio
-                      )
+                      agregarAlCarrito(auto.id, auto.nombre, auto.precio)
                     }
                   >
                     Agregar al carrito
