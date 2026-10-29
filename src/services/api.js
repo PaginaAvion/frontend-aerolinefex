@@ -1,4 +1,3 @@
-// URL base del backend
 const API_URL = 'http://localhost:3000/api';
 
 async function request(endpoint, options = {}) {
@@ -26,7 +25,7 @@ async function request(endpoint, options = {}) {
   return response.json();
 }
 
-// ===== VUELOS =====
+
 export const vuelosAPI = {
   listar: () => request('/vuelos'),
   obtener: (id) => request(`/vuelos/${id}`),
@@ -37,7 +36,7 @@ export const vuelosAPI = {
   eliminar: (id) => request(`/vuelos/${id}`, { method: 'DELETE' })
 };
 
-// ===== AUTH =====
+
 export const authAPI = {
   login: (email, password) =>
     request('/auth/login', {
